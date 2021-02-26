@@ -38,7 +38,7 @@ class Johto extends React.Component {
         }
 
         const locLis = this.state.locationsJohto.map((location, index) =>
-        {if(index < 48 && location.name.includes("unknown") == false){
+        {if(index < 48 && location.name.includes("unknown") === false){
             return (
                 <div style={flexContainer}>
                     <Link to={{pathname: "/routes", hash: `${location.url}`}} className="nav-link"> <Button key={index} className="btn btn-light" style={boxStyle} > {this.locationReformat(location.name)} </Button> </Link>

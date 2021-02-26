@@ -38,7 +38,7 @@ class Kanto extends React.Component {
         }
 
         const locLis = this.state.locationsKanto.map((location, index) =>
-        {if(index < 50 && location.name !== "seafoam-islands" && location.name !== "cerulean-cave" && location.name != "viridian-forest" && location.name !== "power-plant" && location.name !== "kanto-victory-road-2" && location.name !== "pokemon-tower" && location.name !== "pokemon-mansion" && location.name !== "kanto-safari-zone"){
+        {if(index < 50 && location.name !== "seafoam-islands" && location.name !== "cerulean-cave" && location.name !== "viridian-forest" && location.name !== "power-plant" && location.name !== "kanto-victory-road-2" && location.name !== "pokemon-tower" && location.name !== "pokemon-mansion" && location.name !== "kanto-safari-zone"){
             return (
                 <div style={flexContainer}>
                     <Link to={{pathname: "/routes", hash: `${location.url}`}} className="nav-link"> <Button key={index} className="btn btn-light" style={boxStyle} > {this.locationReformat(location.name)} </Button> </Link>
