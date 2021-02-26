@@ -10,13 +10,11 @@ import Kanto from "./components/kanto";
 import Johto from "./components/johto";
 import Routes from "./components/routes";
 
-
-
 export default function App() {
 
     const navbarSilver = {backgroundColor: '#6AADD7'};
     const navbarGold = {backgroundColor: '#A28F61'};
-    const linkStyle = {color: 'black', fontSize: '25px', borderStyle: 'inset', borderRadius: '25px', borderWidth: 'thin', padding: '20px'};
+    const linkStyle = {color: 'black', fontSize: '25px', borderStyle: 'inset', borderColor: 'black', borderRadius: '25px', borderWidth: 'thin', padding: '20px'};
     const versionLinkStyle = {color: 'black', backgroundColor: 'white', fontSize: '20px', borderStyle: 'inset', borderColor: 'black', borderRadius: '25px', borderWidth: 'thin', padding: '10px', height: '50px', width: '100px'}
     const titleStyle = {color: 'white', fontSize: '25px'};
   
