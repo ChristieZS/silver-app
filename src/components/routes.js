@@ -30,7 +30,23 @@ class Routes extends React.Component {
             .catch(function() {
                 console.log("API error")
             }.bind(this))
+    }
+
+    getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for(var i = 0; i <ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) === ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) === 0) {
+                return c.substring(name.length, c.length);
+            }
         }
+        return "";
+    }
 
     locationReformat = (loc) => {
         if(!loc) return
@@ -108,9 +124,6 @@ class Routes extends React.Component {
     }
 
     calculateDayEncounter = (encounters) => {                                                       //passing in        poke.version_details[1].encounter_details
-        console.log("passed through: " + encounters)
-        console.log("length of encounters: " + encounters.length)
-
         return (
             encounters.map((e, i) =>                                                    //goes through each encounter for each pokemon
                 (e.condition_values.length === 0 ?
@@ -124,17 +137,21 @@ class Routes extends React.Component {
     }
 
     versionChecker = (versions) => {
+        var gameVersion = this.getCookie("version")
+
         for(var i=0; i < versions.length; i++) {
-            if(versions[i].version.name === "silver") {
-                console.log("trrruueee " + versions[i].version.name)
+            if(versions[i].version.name === gameVersion) {
+                console.log("version showing is...  " + versions[i].version.name)
                 return true
             }
         }
     }
 
     versionIndexChecker = (ver) => {
+        var gameVersion = this.getCookie("version")
+
         for(var i=0; i < ver.length; i++) {
-            if(ver[i].version.name === "silver") {
+            if(ver[i].version.name === gameVersion) {
                 return i
             }
         }
